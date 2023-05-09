@@ -1,0 +1,8 @@
+spring:
+  main:
+    web-application-type: NONE
+    allow-bean-definition-overriding: false
+header:
+  url:
+    base: ${URL_BASE:https://reqres.in/}
+
