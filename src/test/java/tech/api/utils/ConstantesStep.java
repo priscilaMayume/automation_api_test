@@ -11,6 +11,13 @@ import org.springframework.stereotype.Component;
 public class ConstantesStep {
 
     private ValidatableResponse response;
+    public void setResponse(ValidatableResponse response) {
+        this.response = response;
+    }
+    public ValidatableResponse getResponse() {
+        return response;
+    }
+
     private ValidatableResponse responseTokenInvalido;
     private JsonPath responseJsonPath;
 

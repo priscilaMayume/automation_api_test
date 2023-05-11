@@ -2,7 +2,7 @@
 Funcionalidade: Listar teste
 
   Cenario: Listar teste
-    Dado que eu deseje visualizar todos ursers
     Quando eu executo a listagem de todos users
-    Entao todos os usuarios disponiveis
+    Entao devo receber HttpStatus 200
+    E a resposta da requisicao deve estar de acordo com o schema "LISTAR_ALL_USERS"
 

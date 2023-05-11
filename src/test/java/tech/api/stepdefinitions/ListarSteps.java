@@ -14,20 +14,10 @@ public class ListarSteps {
     @Autowired
     ConstantesStep constStep;
 
-    @Dado("que eu deseje visualizar todos ursers")
-    public void queEuDesejeVisualizarTodosUrsers() {
-        constStep = new ConstantesStep();
-
-    }
     @Quando("eu executo a listagem de todos users")
     public void euExecutoAListagemDeTodosUsers() {
-        if (constStep == null) {
-            constStep = new ConstantesStep();
-        }
         constStep.setResponse(segurosService.doListarAllUsers());
-    }
-    @Entao("todos os usuarios disponiveis")
-    public void todosOsUsuariosDisponiveis() {
+
 
     }
 }
