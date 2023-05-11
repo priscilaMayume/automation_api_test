@@ -5,6 +5,7 @@ import io.cucumber.java.pt.Entao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import tech.api.rest.ServiceApiTests;
+import tech.api.utils.ConstantesCampos;
 import tech.api.utils.ConstantesStep;
 import tech.api.utils.Schemas;
 

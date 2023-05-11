@@ -4,5 +4,5 @@ spring:
     allow-bean-definition-overriding: false
 header:
   url:
-    base: ${URL_BASE:https://reqres.in/}
+    base: ${URL_BASE:https://reqres.in/api/}
 

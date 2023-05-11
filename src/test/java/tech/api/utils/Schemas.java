@@ -4,7 +4,8 @@ import lombok.Getter;
 
 public enum Schemas {
 
-    LISTAR_ALL_USERS("schemas/listarAllUsersSchema.json");
+    LISTAR_ALL_USERS("schemas/listarAllUsersSchema.json"),
+    LISTAR_SINGLE_USER("schemas/listarSingleUserSchema.json");
 
     @Getter
     String path;

@@ -18,7 +18,16 @@ public class ServiceApiTests {
 
         ValidatableResponse response = RestAssured.given()
                 .when()
-                .get(urlBase + ConstantesPath.USER_ALL_PATH)
+                .get(urlBase + ConstantesPath.USERS_PATH)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doListarSingleUser(Integer idCLient) {
+
+        ValidatableResponse response = RestAssured.given()
+                .when()
+                .get(urlBase + ConstantesPath.SINGLE_USER_PATH + idCLient)
                 .then().log().all();
         return response;
     }

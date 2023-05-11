@@ -5,6 +5,8 @@ import io.restassured.response.ValidatableResponse;
 import lombok.Data;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import tech.api.entities.response.ListUserResponse;
+
 @Data
 @Component
 @Scope("cucumber-glue")
@@ -20,6 +22,7 @@ public class ConstantesStep {
 
     private ValidatableResponse responseTokenInvalido;
     private JsonPath responseJsonPath;
+    private ListUserResponse listUserResponse;
 
 }
 
