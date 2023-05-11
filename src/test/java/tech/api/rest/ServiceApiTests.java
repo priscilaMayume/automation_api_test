@@ -5,6 +5,7 @@ import io.restassured.response.ValidatableResponse;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import tech.api.utils.ConstantesPath;
 
 @Component
 public class ServiceApiTests {
@@ -17,7 +18,7 @@ public class ServiceApiTests {
 
         ValidatableResponse response = RestAssured.given()
                 .when()
-                .get(urlBase + "api/users?page=2")
+                .get(urlBase + ConstantesPath.USER_ALL_PATH)
                 .then().log().all();
         return response;
     }
