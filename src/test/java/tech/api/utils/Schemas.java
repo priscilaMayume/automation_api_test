@@ -8,7 +8,8 @@ public enum Schemas {
     LISTAR_SINGLE_USER("schemas/listarSingleUserSchema.json"),
     LISTAR_ALL_RESOURCES("schemas/listarAllResourcesSchema.json"),
     LISTAR_SINGLE_RESOURCES("schemas/listarSingleResoucesSchema.json"),
-    CRIAR_USER_RESOURCES("schemas/CriarUserSchema.json");
+    CRIAR_USER_RESOURCES("schemas/CriarUserSchema.json"),
+    ALTERAR_USER_RESOURCES("schemas/AlterarUserSchema.json");
 
     @Getter
     String path;

@@ -62,4 +62,26 @@ public class ServiceApiTests {
                 .then().log().all();
         return response;
     }
+
+    public ValidatableResponse doUpdatePutUser(CreateUserRequest createUserRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(createUserRequest)
+                .when()
+                .put(urlBase + ConstantesPath.API_PATH + ConstantesPath.SINGLE_USER_PATH)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doUpdatePatchUser(CreateUserRequest createUserRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(createUserRequest)
+                .when()
+                .patch(urlBase + ConstantesPath.API_PATH + ConstantesPath.SINGLE_USER_PATH)
+                .then().log().all();
+        return response;
+    }
 }

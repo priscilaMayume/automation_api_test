@@ -32,4 +32,11 @@ public class CriarUsuariosSteps {
         constantesStep.setResponse(segurosService.doCreateUser(constantesStep.getCreateUserRequest()));
     }
 
+    @E("criar o usuario com sucesso")
+    public void criarOUsuarioComSucesso() {
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.NAME, is(ConstantesCampos.NAME_MORPHEUS));
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.JOB, is(ConstantesCampos.JOB_LEADER));
+
+    }
+
 }
