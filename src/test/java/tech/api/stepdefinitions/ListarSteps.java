@@ -16,10 +16,16 @@ public class ListarSteps {
     ServiceApiTests segurosService;
     @Autowired
     ConstantesStep constantesStep;
-    Integer codClient_2;
+    Integer codClient;
+
     @Dado("que envie request com user valido")
     public void queEnvieRequestComUserValido() {
-       codClient_2 = ConstantesCampos.CODIGO_CLIENT_2;
+        codClient = ConstantesCampos.CODIGO_CLIENT_2;
+    }
+
+    @Dado("que envie request com user invalido")
+    public void queEnvieRequestComUserInvalido() {
+        codClient = ConstantesCampos.CODIGO_NEXISTENTE;
     }
 
     @Quando("eu executo a listagem de todos users")
@@ -30,14 +36,38 @@ public class ListarSteps {
 
     @Quando("eu executo a listagem dos users por IdCliente")
     public void euExecutoAListagemDosUsersPorIdCliente() {
-        constantesStep.setResponse(segurosService.doListarSingleUser(codClient_2));
+        constantesStep.setResponse(segurosService.doListarSingleUser(codClient));
+    }
+
+    @Quando("eu executo a listagem dos recursos")
+    public void euExecutoAListagemDosRecursos() {
+        constantesStep.setResponse(segurosService.doListarAllResources());
+    }
+
+    @Quando("eu executo a listagem dos recursos por IdCliente")
+    public void euExecutoAListagemDosRecursosPorIdCliente() {
+        constantesStep.setResponse(segurosService.doListarSingleResources(codClient));
     }
 
     @E("listar os dados do usuario com sucesso")
     public void listarOsDadosDoUsuarioComSucesso() {
-        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_ID,
-        is(ConstantesCampos.CODIGO_CLIENT_2));
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_ID, is(ConstantesCampos.CODIGO_CLIENT_2));
 
+    }
+
+    @E("listar todos os recursos com sucesso")
+    public void listarTodosOsRecursosComSucesso() {
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_ID_0, is(ConstantesCampos.CODIGO_CLIENT_1));
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_ID_1, is(ConstantesCampos.CODIGO_CLIENT_2));
+
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_NAME_0, is(ConstantesCampos.NAME_CERULEAN));
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_NAME_1, is(ConstantesCampos.NAME_FUCHSIA));
+    }
+
+    @E("listar todos os recursos do usuario com sucesso")
+    public void listarTodosOsRecursosDoUsuarioComSucesso() {
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_ID, is(ConstantesCampos.CODIGO_CLIENT_2));
+        constantesStep.getResponse().assertThat().body(ConstantesCampos.DATA_NAME, is(ConstantesCampos.NAME_FUCHSIA));
     }
 
 }

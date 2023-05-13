@@ -31,4 +31,22 @@ public class ServiceApiTests {
                 .then().log().all();
         return response;
     }
+
+    public ValidatableResponse doListarAllResources() {
+
+        ValidatableResponse response = RestAssured.given()
+                .when()
+                .get(urlBase + ConstantesPath.LIST_RESOURCE_PATH)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doListarSingleResources(Integer idCLient) {
+
+        ValidatableResponse response = RestAssured.given()
+                .when()
+                .get(urlBase + ConstantesPath.SINGLE_RESOURCE_PATH + idCLient)
+                .then().log().all();
+        return response;
+    }
 }

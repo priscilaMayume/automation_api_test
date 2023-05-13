@@ -40,8 +40,8 @@ public class GenericSteps {
         constantesStep.getResponse().assertThat().log().all().body(ConstantesCampos.ERROR_DETAIL_MENSSAGE, containsString(mensagem));
     }
 
-    @E("o response retorna vazio")
-    public void oResponseRetornaVazio() {
+    @E("devo receber o response vazio")
+    public void devoReceberOResponseVazio() {
         constantesStep.getResponse().equals(null);
 
     }
