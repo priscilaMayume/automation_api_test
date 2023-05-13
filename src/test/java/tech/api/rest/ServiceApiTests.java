@@ -1,10 +1,12 @@
 package tech.api.rest;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import tech.api.entities.request.CreateUserRequest;
 import tech.api.utils.ConstantesPath;
 
 @Component
@@ -46,6 +48,17 @@ public class ServiceApiTests {
         ValidatableResponse response = RestAssured.given()
                 .when()
                 .get(urlBase + ConstantesPath.SINGLE_RESOURCE_PATH + idCLient)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doCreateUser(CreateUserRequest createUserRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(createUserRequest)
+                .when()
+                .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.USERS_PATH)
                 .then().log().all();
         return response;
     }

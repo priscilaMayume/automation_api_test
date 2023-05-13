@@ -10,7 +10,7 @@ import tech.api.utils.ConstantesStep;
 
 import static org.hamcrest.Matchers.is;
 
-public class ListarSteps {
+public class ListarUsuariosSteps {
 
     @Autowired
     ServiceApiTests segurosService;

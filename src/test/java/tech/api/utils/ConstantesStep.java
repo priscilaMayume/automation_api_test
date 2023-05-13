@@ -5,6 +5,7 @@ import io.restassured.response.ValidatableResponse;
 import lombok.Data;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import tech.api.entities.request.CreateUserRequest;
 import tech.api.entities.response.ListUserResponse;
 
 @Data
@@ -23,6 +24,8 @@ public class ConstantesStep {
     private ValidatableResponse responseTokenInvalido;
     private JsonPath responseJsonPath;
     private ListUserResponse listUserResponse;
+    private CreateUserRequest createUserRequest;
+
 
 }
 
