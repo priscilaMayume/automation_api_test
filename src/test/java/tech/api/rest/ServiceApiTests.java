@@ -84,4 +84,13 @@ public class ServiceApiTests {
                 .then().log().all();
         return response;
     }
+
+    public ValidatableResponse doDeleteSingleUser(Integer idCLient) {
+
+        ValidatableResponse response = RestAssured.given()
+                .when()
+                .delete(urlBase + ConstantesPath.SINGLE_USER_PATH + idCLient)
+                .then().log().all();
+        return response;
+    }
 }
