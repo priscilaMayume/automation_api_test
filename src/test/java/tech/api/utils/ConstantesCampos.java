@@ -20,6 +20,7 @@ public class ConstantesCampos {
     public static final String JOB_LEADER = "leader";
     public static final String JOB_ANALIST = "analist";
     public static final Integer CODIGO_NEXISTENTE = -123;
+    public static final String EMAIL = "email@test.com";
 
 
 

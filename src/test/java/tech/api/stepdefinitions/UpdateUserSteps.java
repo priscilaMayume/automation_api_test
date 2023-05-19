@@ -11,10 +11,10 @@ import tech.api.utils.ConstantesStep;
 
 import static org.hamcrest.Matchers.is;
 
-public class AlterarUsuariosSteps {
+public class UpdateUserSteps {
 
     @Autowired
-    ServiceApiTests segurosService;
+    ServiceApiTests serviceApiTests;
     @Autowired
     ConstantesStep constantesStep;
 
@@ -38,12 +38,12 @@ public class AlterarUsuariosSteps {
 
     @Quando("eu executo alterar PUT um user")
     public void euExecutoAlterarPUTUmUser() {
-        constantesStep.setResponse(segurosService.doUpdatePutUser(constantesStep.getCreateUserRequest()));
+        constantesStep.setResponse(serviceApiTests.doUpdatePutUser(constantesStep.getCreateUserRequest()));
     }
 
     @Quando("eu executo alterar um user")
     public void euExecutoAlterarUmUser() {
-        constantesStep.setResponse(segurosService.doUpdatePatchUser(constantesStep.getCreateUserRequest()));
+        constantesStep.setResponse(serviceApiTests.doUpdatePatchUser(constantesStep.getCreateUserRequest()));
 
     }
 

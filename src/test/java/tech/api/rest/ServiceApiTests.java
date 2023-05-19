@@ -6,6 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import tech.api.entities.request.CreateEmailRequest;
 import tech.api.entities.request.CreateUserRequest;
 import tech.api.utils.ConstantesPath;
 
@@ -90,6 +91,28 @@ public class ServiceApiTests {
         ValidatableResponse response = RestAssured.given()
                 .when()
                 .delete(urlBase + ConstantesPath.SINGLE_USER_PATH + idCLient)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doCreateEmail(CreateEmailRequest createEmailRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(createEmailRequest).log().all()
+                .when()
+                .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.REGISTER_PATH)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doCreateEmailInvalid(String createEmailInvalidRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(createEmailInvalidRequest).log().all()
+                .when()
+                .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.REGISTER_PATH)
                 .then().log().all();
         return response;
     }

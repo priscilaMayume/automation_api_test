@@ -5,19 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import tech.api.rest.ServiceApiTests;
 import tech.api.utils.ConstantesStep;
 
-import static org.hamcrest.Matchers.is;
-
-public class DeletarUsuariosSteps {
+public class DeleteUserSteps {
 
     @Autowired
-    ServiceApiTests segurosService;
+    ServiceApiTests serviceApiTests;
     @Autowired
     ConstantesStep constantesStep;
     Integer codClient;
 
     @Quando("eu executo a delecao de um users por IdCliente")
     public void euExecutoADelecaoDeUmUsersPorIdCliente() {
-        constantesStep.setResponse(segurosService.doDeleteSingleUser(codClient));
+        constantesStep.setResponse(serviceApiTests.doDeleteSingleUser(codClient));
     }
 
 }

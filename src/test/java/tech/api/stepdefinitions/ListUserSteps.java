@@ -10,10 +10,10 @@ import tech.api.utils.ConstantesStep;
 
 import static org.hamcrest.Matchers.is;
 
-public class ListarUsuariosSteps {
+public class ListUserSteps {
 
     @Autowired
-    ServiceApiTests segurosService;
+    ServiceApiTests serviceApiTests;
     @Autowired
     ConstantesStep constantesStep;
     Integer codClient;
@@ -30,23 +30,23 @@ public class ListarUsuariosSteps {
 
     @Quando("eu executo a listagem de todos users")
     public void euExecutoAListagemDeTodosUsers() {
-        constantesStep.setResponse(segurosService.doListarAllUsers());
+        constantesStep.setResponse(serviceApiTests.doListarAllUsers());
 
     }
 
     @Quando("eu executo a listagem dos users por IdCliente")
     public void euExecutoAListagemDosUsersPorIdCliente() {
-        constantesStep.setResponse(segurosService.doListarSingleUser(codClient));
+        constantesStep.setResponse(serviceApiTests.doListarSingleUser(codClient));
     }
 
     @Quando("eu executo a listagem dos recursos")
     public void euExecutoAListagemDosRecursos() {
-        constantesStep.setResponse(segurosService.doListarAllResources());
+        constantesStep.setResponse(serviceApiTests.doListarAllResources());
     }
 
     @Quando("eu executo a listagem dos recursos por IdCliente")
     public void euExecutoAListagemDosRecursosPorIdCliente() {
-        constantesStep.setResponse(segurosService.doListarSingleResources(codClient));
+        constantesStep.setResponse(serviceApiTests.doListarSingleResources(codClient));
     }
 
     @E("listar os dados do usuario com sucesso")

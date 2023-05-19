@@ -11,10 +11,10 @@ import tech.api.utils.ConstantesStep;
 
 import static org.hamcrest.Matchers.is;
 
-public class CriarUsuariosSteps {
+public class CreateUserSteps {
 
     @Autowired
-    ServiceApiTests segurosService;
+    ServiceApiTests serviceApiTests;
     @Autowired
     ConstantesStep constantesStep;
 
@@ -29,7 +29,7 @@ public class CriarUsuariosSteps {
 
     @Quando("eu executo a criacao de um user")
     public void euExecutoACriacaoDeUmUser() {
-        constantesStep.setResponse(segurosService.doCreateUser(constantesStep.getCreateUserRequest()));
+        constantesStep.setResponse(serviceApiTests.doCreateUser(constantesStep.getCreateUserRequest()));
     }
 
     @E("criar o usuario com sucesso")
