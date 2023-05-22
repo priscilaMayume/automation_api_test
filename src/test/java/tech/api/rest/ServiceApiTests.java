@@ -59,7 +59,7 @@ public class ServiceApiTests {
                 .contentType(ContentType.JSON)
                 .body(createUserRequest)
                 .when()
-                .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.USERS_PATH)
+                .post(urlBase + ConstantesPath.USERS_PATH)
                 .then().log().all();
         return response;
     }
@@ -70,7 +70,7 @@ public class ServiceApiTests {
                 .contentType(ContentType.JSON)
                 .body(createUserRequest)
                 .when()
-                .put(urlBase + ConstantesPath.API_PATH + ConstantesPath.SINGLE_USER_PATH)
+                .put(urlBase + ConstantesPath.SINGLE_USER_PATH)
                 .then().log().all();
         return response;
     }
@@ -81,7 +81,7 @@ public class ServiceApiTests {
                 .contentType(ContentType.JSON)
                 .body(createUserRequest)
                 .when()
-                .patch(urlBase + ConstantesPath.API_PATH + ConstantesPath.SINGLE_USER_PATH)
+                .patch(urlBase + ConstantesPath.SINGLE_USER_PATH)
                 .then().log().all();
         return response;
     }
