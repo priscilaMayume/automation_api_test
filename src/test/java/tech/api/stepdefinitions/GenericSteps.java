@@ -45,4 +45,10 @@ public class GenericSteps {
         constantesStep.getResponse().equals(null);
 
     }
+
+    @E("deve apresentar msg da ausencia do password")
+    public void deveApresentarMsgDaAusenciaDoPassword() {
+        constantesStep.getResponse().assertThat().log().all().body(ConstantesCampos.ERROR, containsString(ConstantesCampos.MSG_ERROR_MISSING_PASSWORD));
+
+    }
 }

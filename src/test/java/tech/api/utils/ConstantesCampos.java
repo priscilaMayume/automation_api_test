@@ -21,6 +21,8 @@ public class ConstantesCampos {
     public static final String JOB_ANALIST = "analist";
     public static final Integer CODIGO_NEXISTENTE = -123;
     public static final String EMAIL = "email@test.com";
+    public static final String MSG_ERROR_MISSING_PASSWORD = "Missing password";
+    public static final String ERROR = "error";
 
 
 

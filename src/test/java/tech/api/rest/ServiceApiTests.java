@@ -106,14 +106,37 @@ public class ServiceApiTests {
         return response;
     }
 
-    public ValidatableResponse doCreateEmailInvalid(String createEmailInvalidRequest) {
+    public ValidatableResponse doCreateEmailInvalid(String createEmailRequest) {
 
         ValidatableResponse response = RestAssured.given()
                 .contentType(ContentType.JSON)
-                .body(createEmailInvalidRequest).log().all()
+                .body(createEmailRequest).log().all()
                 .when()
                 .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.REGISTER_PATH)
                 .then().log().all();
         return response;
     }
+
+    public ValidatableResponse doCreateLogin(CreateEmailRequest createEmailRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(createEmailRequest).log().all()
+                .when()
+                .post(urlBase  + ConstantesPath.LOGIN_PATH)
+                .then().log().all();
+        return response;
+    }
+
+    public ValidatableResponse doCreateLoginInvalid(String createEmailRequest) {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body("{\"email\": \"" + createEmailRequest + "\"}").log().all()
+                .when()
+                .post(urlBase + ConstantesPath.LOGIN_PATH)
+                .then().log().all();
+        return response;
+    }
+
 }
