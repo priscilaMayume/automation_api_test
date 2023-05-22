@@ -6,7 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import tech.api.entities.request.CreateEmailRequest;
+import tech.api.entities.request.ValidationEmailRequest;
 import tech.api.entities.request.CreateUserRequest;
 import tech.api.utils.ConstantesPath;
 
@@ -95,29 +95,29 @@ public class ServiceApiTests {
         return response;
     }
 
-    public ValidatableResponse doCreateEmail(CreateEmailRequest createEmailRequest) {
+    public ValidatableResponse doValidationEmail(ValidationEmailRequest createEmailRequest) {
 
         ValidatableResponse response = RestAssured.given()
                 .contentType(ContentType.JSON)
-                .body(createEmailRequest).log().all()
+                .body(createEmailRequest)
                 .when()
-                .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.REGISTER_PATH)
+                .post(urlBase + ConstantesPath.REGISTER_PATH)
                 .then().log().all();
         return response;
     }
 
-    public ValidatableResponse doCreateEmailInvalid(String createEmailRequest) {
+    public ValidatableResponse doValidationEmailInvalid(String createEmailRequest) {
 
         ValidatableResponse response = RestAssured.given()
                 .contentType(ContentType.JSON)
-                .body(createEmailRequest).log().all()
+                .body(createEmailRequest)
                 .when()
-                .post(urlBase + ConstantesPath.API_PATH + ConstantesPath.REGISTER_PATH)
+                .post(urlBase + ConstantesPath.REGISTER_PATH)
                 .then().log().all();
         return response;
     }
 
-    public ValidatableResponse doCreateLogin(CreateEmailRequest createEmailRequest) {
+    public ValidatableResponse doCreateLogin(ValidationEmailRequest createEmailRequest) {
 
         ValidatableResponse response = RestAssured.given()
                 .contentType(ContentType.JSON)

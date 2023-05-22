@@ -15,7 +15,7 @@ public class CreateLoginSteps {
 
     @Quando("eu faco login")
     public void euFacoLogin() {
-        constantesStep.setResponse(serviceApiTests.doCreateLogin(constantesStep.getCreateEmailRequest()));
+        constantesStep.setResponse(serviceApiTests.doCreateLogin(constantesStep.getValidationEmailRequest()));
 
     }
 
