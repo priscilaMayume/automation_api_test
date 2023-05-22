@@ -139,4 +139,15 @@ public class ServiceApiTests {
         return response;
     }
 
+    public ValidatableResponse doListarAllDelay() {
+
+        ValidatableResponse response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .queryParam("delay", 2)
+                .when()
+                .get(urlBase + ConstantesPath.USERS_PATH)
+                .then().log().all();
+        return response;
+    }
+
 }

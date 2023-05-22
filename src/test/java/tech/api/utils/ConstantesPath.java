@@ -8,7 +8,6 @@ public class ConstantesPath {
 	public static final String SINGLE_RESOURCE_PATH = "unknown/";
 	public static final String REGISTER_PATH = "register";
 	public static final String LOGIN_PATH = "login";
-	public static final String DELAYED_RESPONSE_PATH = "users?delay=3";
 
 }
 
